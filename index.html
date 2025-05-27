@@ -1,16 +1,67 @@
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Min Sida</title>
+  <link rel="stylesheet" href="/styling/style.css" />
+</head>
+<body>
 
-      <!--FAVICON, TASS FRAMFÖR TAB NAMNET-->
-      <link rel="shortcut icon" href="Styling/2 TPB.png">
+  <!-- Logo -->
+  <a href="#intro" class="logo-link">
+    <img src="styling/2 TPB.png" alt="Logo" />
+  </a>
 
-      <!-- IMPORTERADE REMIXICONS, EX FÖR PILAR-->
-      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <nav>
+    <a href="#intro" class="active">Intro</a>
+    <a href="#values">Values</a>
+    <a href="#background">Background</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-      <!-- CSS LÄNK-->
-      <link rel="stylesheet" href="Styling/style.css">
+  <section id="intro" class="intro-section">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="styling/smoke.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+<div class="intro-content">
+  <img src="/styling/4 TPB.png" alt="Logotyp eller bild" class="intro-image" />
+  <p class="intro-text">In the space between form and function</p>
+  <p class="intro-text italic">- that's where I build.</p>
+</div>
 
-      <title>SVINX</title>
-   </head>
+  </section>
+
+  <!-- Resterande sektioner... -->
+  <section id="values" class="content-section1">
+    <h1>Values</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, eaque esse. Eius assumenda, odit velit illo tempora illum animi quae pariatur voluptas dicta optio nihil iure modi nam quo corporis?</p>
+  </section>
+
+  <section id="background" class="content-section">
+    <h1>Background</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi reprehenderit distinctio ipsam fugiat dignissimos dolor? Illo ducimus delectus optio! Autem neque error corrupti hic repudiandae ipsam rem voluptatem perferendis veritatis nulla numquam explicabo, earum inventore ex obcaecati quibusdam doloremque rerum?</p>
+  </section>
+
+  <section id="work" class="content-section">
+    <h1>Work</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ratione tempora voluptatum nulla? Molestias quia eos quidem animi nostrum eum voluptates nisi aperiam consequatur, nemo fugit maxime nihil praesentium in!</p>
+  </section>
+
+  <section id="about" class="content-section">
+    <h1>About</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quas distinctio ut autem fuga hic asperiores iusto inventore quaerat. Tempore quam sit quia harum cumque sint iste accusamus omnis sed.</p>
+  </section>
+
+  <section id="contact" class="content-section">
+    <h1>Contact</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid aut maxime cumque. Nulla assumenda, architecto quas dolor beatae perspiciatis esse vitae nemo fugit deserunt error voluptates eveniet laboriosam veniam consequatur!</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
