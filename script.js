@@ -22,28 +22,21 @@ window.addEventListener('scroll', () => {
 });
 
 
-const hamburgerBtn = document.getElementById("hamburgerBtn");
-const mobileMenu = document.getElementById("mobileMenu");
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
 
-hamburgerBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("show");
+hamburgerBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
 });
 
-// Stäng meny vid klick på länk
-mobileMenu.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("show");
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
   });
 });
 
-// Stäng meny vid klick utanför
-document.addEventListener("click", (e) => {
-  if (
-    mobileMenu.classList.contains("show") &&
-    !mobileMenu.contains(e.target) &&
-    e.target !== hamburgerBtn &&
-    !hamburgerBtn.contains(e.target)
-  ) {
-    mobileMenu.classList.remove("show");
+document.addEventListener('click', (e) => {
+  if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+    mobileMenu.classList.remove('active');
   }
 });
