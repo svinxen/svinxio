@@ -1,27 +1,3 @@
-// Scrollspy för aktiv nav-länk
-const sections = document.querySelectorAll('section');
-const navLinks = document.querySelectorAll('nav a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if(pageYOffset >= sectionTop - sectionHeight / 3){
-      current = section.getAttribute('id');
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if(link.getAttribute('href') === '#' + current){
-      link.classList.add('active');
-    }
-  });
-});
-
-
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -29,14 +5,18 @@ hamburgerBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('active');
 });
 
-mobileMenu.querySelectorAll('a').forEach(link => {
+// Stäng meny när man klickar utanför
+document.addEventListener('click', (event) => {
+  const isClickInside = hamburgerBtn.contains(event.target) || mobileMenu.contains(event.target);
+
+  if (!isClickInside) {
+    mobileMenu.classList.remove('active');
+  }
+});
+
+// Stäng meny vid klick på en länk
+document.querySelectorAll('.mobile-menu a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('active');
   });
-});
-
-document.addEventListener('click', (e) => {
-  if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    mobileMenu.classList.remove('active');
-  }
 });
