@@ -219,3 +219,49 @@ nav a:hover {
     display: none;
   }
 }
+
+
+.values-wrapper {
+  display: flex;
+  gap: 25rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.values-left {
+  flex: 1;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.values-right {
+  flex: 2;
+  font-size: 1.3rem;
+  line-height: 2;
+}
+
+/* Responsiv layout */
+@media (max-width: 768px) {
+  .values-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .values-left {
+    font-size: 2rem;
+  }
+}
+
+/* Scroll-animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
