@@ -49,13 +49,13 @@ nav a {
   padding-left: 10px;
   border-left: 4px solid transparent;
   transition: border-color 0.3s ease, color 0.3s ease, font-size 0.3s ease;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 nav a.active {
   border-left-color: var(--primary-color);
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 
@@ -137,7 +137,7 @@ nav a:hover {
 .hamburger {
   position: fixed;
   top: 60px;
-  right: 30px;
+  right: 50px;
   z-index: 1101;
   background: none;
   border: none;
@@ -150,14 +150,14 @@ nav a:hover {
 /* Mobilmenyn - dropdown under knappen */
 .mobile-menu {
   position: fixed;
-  top: 80px; /* Justera så att den ligger under hamburgarikonen */
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.95);
-  border-radius: 10px;
-  padding: 1rem 1.5rem;
+  top: 50px; /* Justera så att den ligger under hamburgarikonen */
+  right: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 6rem 2rem;
   display: none;  /* dold som default */
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
   min-width: 150px;
   z-index: 1100;
@@ -166,13 +166,20 @@ nav a:hover {
 .mobile-menu a {
   color: white;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 1px;
+  
 }
 
 .mobile-menu a:hover {
   color: var(--primary-color);
 }
+
+.mobile-menu.active a {
+    font-size: 1.2rem;
+    }
+
 
 /* Show mobile menu when active */
 .mobile-menu.active {

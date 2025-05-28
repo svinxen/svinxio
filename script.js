@@ -1,3 +1,31 @@
+// Select all nav links and sections
+const navLinks = document.querySelectorAll('nav a');
+const sections = [...document.querySelectorAll('section')];
+
+// Function to update active nav link based on scroll position
+function updateActiveLink() {
+  const scrollPos = window.scrollY + window.innerHeight / 3;
+
+  sections.forEach(section => {
+    if (
+      scrollPos >= section.offsetTop &&
+      scrollPos < section.offsetTop + section.offsetHeight
+    ) {
+      const id = section.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}
+
+// Run on scroll
+window.addEventListener('scroll', updateActiveLink);
+
+// Run on load
+updateActiveLink();
+
+
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
