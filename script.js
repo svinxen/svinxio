@@ -22,27 +22,28 @@ window.addEventListener('scroll', () => {
 });
 
 
- const hamburger = document.getElementById("hamburger");
+const hamburgerBtn = document.getElementById("hamburgerBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
-function closeMenu() {
-  mobileMenu.classList.remove("show");
-}
-
-hamburger.addEventListener("click", () => {
+hamburgerBtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("show");
 });
 
-// Stäng menyn när en länk klickas
-mobileMenu.querySelectorAll("a").forEach(link =>
+// Stäng meny vid klick på länk
+mobileMenu.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
-    closeMenu();
-  })
-);
+    mobileMenu.classList.remove("show");
+  });
+});
 
-// Stäng menyn vid klick utanför
+// Stäng meny vid klick utanför
 document.addEventListener("click", (e) => {
-  if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-    closeMenu();
+  if (
+    mobileMenu.classList.contains("show") &&
+    !mobileMenu.contains(e.target) &&
+    e.target !== hamburgerBtn &&
+    !hamburgerBtn.contains(e.target)
+  ) {
+    mobileMenu.classList.remove("show");
   }
 });
