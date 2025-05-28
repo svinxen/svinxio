@@ -23,26 +23,26 @@ window.addEventListener('scroll', () => {
 
 
  const hamburger = document.getElementById("hamburger");
-  const mobileMenu = document.getElementById("mobileMenu");
+const mobileMenu = document.getElementById("mobileMenu");
 
-  function closeMenu() {
-    mobileMenu.classList.remove("show");
+function closeMenu() {
+  mobileMenu.classList.remove("show");
+}
+
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.toggle("show");
+});
+
+// Stäng menyn när en länk klickas
+mobileMenu.querySelectorAll("a").forEach(link =>
+  link.addEventListener("click", () => {
+    closeMenu();
+  })
+);
+
+// Stäng menyn vid klick utanför
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+    closeMenu();
   }
-
-  hamburger.addEventListener("click", () => {
-    mobileMenu.classList.toggle("show");
-  });
-
-  // Klick på länk stänger meny
-  mobileMenu.querySelectorAll("a").forEach(link =>
-    link.addEventListener("click", () => {
-      closeMenu();
-    })
-  );
-
-  // Klick utanför meny stänger den
-  document.addEventListener("click", (e) => {
-    if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-      closeMenu();
-    }
-  });
+});
