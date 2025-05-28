@@ -221,42 +221,65 @@ nav a:hover {
 }
 
 
-.values-wrapper {
+.values-section {
+  padding: 2rem 2rem;
+  background-color: var(--background-color);
+  color: white;
+}
+
+.values-container {
   display: flex;
-  gap: 25rem;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: flex-end; /* Vertikal centrering */
   justify-content: space-between;
+  gap: 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-top: 20rem;
 }
 
-.values-left {
-  flex: 1;
-  font-size: 4.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
+.values-left,
 .values-right {
-  flex: 2;
+  flex: 1;
+}
+
+.values-left h2 {
+  font-size: 7rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.values-right p {
   font-size: 1.3rem;
-  line-height: 2;
+  line-height: 1.8;
+  margin: 0;
 }
 
-/* Responsiv layout */
+/* Responsiv design för mindre skärmar */
 @media (max-width: 768px) {
-  .values-wrapper {
+  .values-container {
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    text-align: center;
   }
 
-  .values-left {
-    font-size: 2rem;
+  .values-left,
+  .values-right {
+    width: 100%;
+  }
+
+  .values-left h2 {
+    font-size: 1.5rem;
+  }
+
+  .values-right p {
+    font-size: 0.95rem;
   }
 }
 
-/* Scroll-animation */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateX(80px);
+  transform: translateX(60px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
