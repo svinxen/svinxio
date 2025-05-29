@@ -81,3 +81,36 @@ document.addEventListener('DOMContentLoaded', handleScrollAnimations);
       display.textContent = `Du klickade på: ${item.dataset.name}`;
     });
   });
+
+
+  document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.carousel-item');
+  const descriptions = document.querySelectorAll('.desc');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Ta bort active från alla knappar
+      buttons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+        b.setAttribute('tabindex', '-1');
+      });
+
+      // Lägg på active på klickad knapp
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      btn.setAttribute('tabindex', '0');
+      btn.focus();
+
+      // Visa rätt beskrivning
+      const key = btn.getAttribute('data-key');
+      descriptions.forEach(desc => {
+        if (desc.id === 'desc-' + key) {
+          desc.classList.add('active');
+        } else {
+          desc.classList.remove('active');
+        }
+      });
+    });
+  });
+});

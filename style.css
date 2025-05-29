@@ -344,3 +344,119 @@ nav a:hover {
   transform: translateY(0);
 }
 
+
+
+/* Container maxbredd och centrerad */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Intresse-sektion */
+.interests-section {
+  background-color: #111;
+  color: #ddd;
+  padding: 4rem 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.interests-container {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Karusellens wrapper */
+.carousel-wrapper {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.carousel-wrapper h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Karusell track */
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+/* Karusellknappar */
+.carousel-item {
+  background: #222;
+  color: #ddd;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.carousel-item:hover,
+.carousel-item:focus {
+  background-color: #444;
+  outline: none;
+}
+
+.carousel-item.active {
+  background-color: #555;
+}
+
+/* Beskrivningsruta */
+.interest-description {
+  flex: 2 1 400px;
+  background: #222;
+  border-radius: 8px;
+  padding: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  min-width: 280px;
+  color: #eee;
+  user-select: text;
+  transition: opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Beskrivningar — bara en aktiv i taget */
+.desc {
+  display: none;
+}
+
+.desc.active {
+  display: block;
+}
+
+/* Responsiv */
+@media (max-width: 768px) {
+  .interests-container {
+    flex-direction: column;
+  }
+
+  .interest-description {
+    margin-top: 2rem;
+  }
+}
