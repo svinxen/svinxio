@@ -319,8 +319,9 @@ nav a:hover {
   min-height: 6rem;
   letter-spacing: 0.3rem;
   background-color: transparent;
+  outline: none;
   border: none;
-  padding-right: 2rem;
+  box-shadow: none;
   color: white;
   text-transform: uppercase;
 }
