@@ -25,7 +25,6 @@ window.addEventListener('scroll', updateActiveLink);
 // Run on load
 updateActiveLink();
 
-
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -67,25 +66,29 @@ function handleScrollAnimations() {
 
 document.addEventListener('DOMContentLoaded', handleScrollAnimations);
 
+const items = document.querySelectorAll(".interest-item");
+const display = document.getElementById("interest-display");
 
-
-
-
-  const items = document.querySelectorAll(".interest-item");
-  const display = document.getElementById("interest-display");
-
-  items.forEach(item => {
-    item.addEventListener("click", () => {
-      items.forEach(i => i.classList.remove("active"));
-      item.classList.add("active");
-      display.textContent = `Du klickade på: ${item.dataset.name}`;
-    });
+items.forEach(item => {
+  item.addEventListener("click", () => {
+    items.forEach(i => i.classList.remove("active"));
+    item.classList.add("active");
+    display.textContent = `Du klickade på: ${item.dataset.name}`;
   });
+});
 
-
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.carousel-item');
   const descriptions = document.querySelectorAll('.desc');
+  const interestImage = document.getElementById('interest-image');
+
+  // Bild-URL:er kopplade till varje key
+  const images = {
+    outdoors: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+    pcmodding: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80',
+    gaming: 'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=600&q=80',
+    animals: 'https://images.unsplash.com/photo-1504203701409-9f69176f7e66?auto=format&fit=crop&w=600&q=80',
+  };
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -111,6 +114,18 @@ document.addEventListener('DOMContentLoaded', handleScrollAnimations);
           desc.classList.remove('active');
         }
       });
+
+      // Byt bild
+      if (interestImage) {
+        interestImage.src = images[key] || '';
+        interestImage.alt = key.charAt(0).toUpperCase() + key.slice(1);
+      }
     });
   });
+
+  // Kör en gång vid start för att visa rätt bild och beskrivning om någon är aktiv
+  const activeBtn = document.querySelector('.carousel-item.active');
+  if (activeBtn) {
+    activeBtn.click();
+  }
 });

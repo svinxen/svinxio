@@ -3,7 +3,6 @@
   --background-color: #0D0D0C;      /* Standard bakgrund (svart) */
 }
 
-
 body {
   margin: 0;
   background-color: var(--primary-color);
@@ -122,9 +121,9 @@ nav a:hover {
   font-size: 1.5rem;
 }
 
-.content-section1 {
+.content-section1,
+.interests-section {
   padding-top: 20rem;
-
 }
 
 /* HAMBURGER */
@@ -174,7 +173,6 @@ nav a:hover {
   font-weight: 500;
   font-size: 1rem;
   margin-top: 1px;
-  
 }
 
 .mobile-menu a:hover {
@@ -182,9 +180,8 @@ nav a:hover {
 }
 
 .mobile-menu.active a {
-    font-size: 1.2rem;
-    }
-
+  font-size: 1.2rem;
+}
 
 /* Show mobile menu when active */
 .mobile-menu.active {
@@ -221,7 +218,6 @@ nav a:hover {
   }
 }
 
-
 .values-section {
   padding: 2rem 2rem;
   background-color: var(--background-color);
@@ -256,61 +252,6 @@ nav a:hover {
   margin: 0;
 }
 
-
-
-
-.interest-cloud-section {
-  padding: 6rem 1.5rem;
-  background: #000;
-  color: #fff;
-  text-align: center;
-}
-
-.interest-cloud {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  justify-items: center;
-  position: relative;
-}
-
-.interest-item {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #444;
-  padding: 0.75rem 1.25rem;
-  border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
-  color: #ccc;
-  transition: transform 0.3s ease, color 0.3s, background 0.3s;
-  user-select: none;
-}
-
-.interest-item:hover {
-  transform: translateY(-4px) scale(1.05);
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #888;
-}
-
-.interest-item.active {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
-}
-
-.interest-display {
-  margin-top: 2rem;
-  font-size: 0.875rem;
-  color: #aaa;
-  font-style: italic;
-}
-
-
-
-
 /* Responsiv design för mindre skärmar */
 @media (max-width: 768px) {
   .values-container {
@@ -344,8 +285,6 @@ nav a:hover {
   transform: translateY(0);
 }
 
-
-
 /* Container maxbredd och centrerad */
 .container {
   max-width: 1600px;
@@ -369,66 +308,16 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
-/* Karusellens wrapper */
-.carousel-wrapper {
-  flex: 1 1 300px;
-  min-width: 280px;
-}
-
-.carousel-wrapper h2 {
-  font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Karusell track */
 .carousel-track {
+  width: 100%;
   display: flex;
   gap: 1rem;
   overflow-x: auto;
   padding-bottom: 0.5rem;
-  scrollbar-width: thin;
-  scrollbar-color: #555 transparent;
-  -webkit-overflow-scrolling: touch;
 }
 
-.carousel-track::-webkit-scrollbar {
-  height: 6px;
-}
-
-.carousel-track::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 4px;
-}
-
-/* Karusellknappar */
-.carousel-item {
-  background: #222;
-  color: #ddd;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: background-color 0.3s ease;
-  user-select: none;
-}
-
-.carousel-item:hover,
-.carousel-item:focus {
-  background-color: #444;
-  outline: none;
-}
-
-.carousel-item.active {
-  background-color: #555;
-}
-
-/* Beskrivningsruta */
 .interest-description {
-  flex: 2 1 400px;
+  flex: 1 1 400px;
   background: #222;
   border-radius: 8px;
   padding: 2rem;
@@ -437,11 +326,10 @@ nav a:hover {
   min-width: 280px;
   color: #eee;
   user-select: text;
-  transition: opacity 0.3s ease;
   box-sizing: border-box;
+  transition: opacity 0.3s ease;
 }
 
-/* Beskrivningar — bara en aktiv i taget */
 .desc {
   display: none;
 }
@@ -450,13 +338,26 @@ nav a:hover {
   display: block;
 }
 
-/* Responsiv */
+
+.interest-image-container {
+  flex: 1 1 400px;
+  min-width: 280px;
+}
+
+.interest-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* På mindre skärmar stapla beskrivning + bild */
 @media (max-width: 768px) {
   .interests-container {
     flex-direction: column;
   }
 
-  .interest-description {
+  .interest-image-container {
     margin-top: 2rem;
   }
 }
