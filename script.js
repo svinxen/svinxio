@@ -66,3 +66,18 @@ function handleScrollAnimations() {
 }
 
 document.addEventListener('DOMContentLoaded', handleScrollAnimations);
+
+
+
+
+
+  const items = document.querySelectorAll(".interest-item");
+  const display = document.getElementById("interest-display");
+
+  items.forEach(item => {
+    item.addEventListener("click", () => {
+      items.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+      display.textContent = `Du klickade på: ${item.dataset.name}`;
+    });
+  });

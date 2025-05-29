@@ -256,6 +256,61 @@ nav a:hover {
   margin: 0;
 }
 
+
+
+
+.interest-cloud-section {
+  padding: 6rem 1.5rem;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.interest-cloud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  justify-items: center;
+  position: relative;
+}
+
+.interest-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #444;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: transform 0.3s ease, color 0.3s, background 0.3s;
+  user-select: none;
+}
+
+.interest-item:hover {
+  transform: translateY(-4px) scale(1.05);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #888;
+}
+
+.interest-item.active {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.interest-display {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+
+
+
 /* Responsiv design för mindre skärmar */
 @media (max-width: 768px) {
   .values-container {
@@ -280,12 +335,12 @@ nav a:hover {
 
 .animate-on-scroll {
   opacity: 0;
-  transform: translateX(60px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(80px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .animate-on-scroll.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
