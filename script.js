@@ -84,10 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Bild-URL:er kopplade till varje key
   const images = {
-    outdoors: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
+    outdoors: '/styling/outdoor2.jpeg',
     pcmodding: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80',
-    gaming: 'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=600&q=80',
-    animals: 'https://images.unsplash.com/photo-1504203701409-9f69176f7e66?auto=format&fit=crop&w=600&q=80',
+    books: '/styling/books.jpg',
+    animals: '/styling/animals.jpg',
   };
 
   buttons.forEach(btn => {

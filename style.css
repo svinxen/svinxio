@@ -309,6 +309,8 @@ nav a:hover {
 
 .interests-section h2 {
   font-size: 5rem;
+  color: white;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -353,14 +355,9 @@ nav a:hover {
 }
 
 
-
-
-
-
-
 .interests-container {
   display: flex;
-  gap: 2rem;
+  gap: 4rem;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -402,9 +399,9 @@ nav a:hover {
 }
 
 .interest-image-container img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+  width: 500px;
+  height: 500px;
+  border-radius: 0px;
   object-fit: cover;
 }
 
