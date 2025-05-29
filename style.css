@@ -114,6 +114,7 @@ nav a:hover {
 /* Sections */
 .content-section1,
 .values-section,
+.intro-section,
 .content-section {
   padding: 2rem 25rem;
   min-height: 100vh;
@@ -230,7 +231,7 @@ nav a:hover {
   align-items: flex-end; /* Vertikal centrering */
   justify-content: space-between;
   gap: 3rem;
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 20rem;
 }
@@ -286,12 +287,15 @@ nav a:hover {
 }
 
 /* Container maxbredd och centrerad */
-.container {
-  max-width: 1800px;
+.interests-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end; /* Vertikal centrering */
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-  box-sizing: border-box;
-  font-size: 4rem;
+  padding-top: 20rem;
 }
 
 /* Intresse-sektion */
@@ -303,7 +307,18 @@ nav a:hover {
 }
 .carousel-item {
   font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  color: white;
 }
+
+.carousel-item {
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
 .interests-container {
   display: flex;
   gap: 4rem;
@@ -319,11 +334,9 @@ nav a:hover {
   padding-bottom: 0.5rem;
 }
 
-
-
 .interest-description {
   flex: 1 1 400px;
-  background: #222;
+  background: transparent;
   border-radius: 8px;
   padding: 2rem;
   font-size: 1.125rem;
