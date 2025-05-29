@@ -315,11 +315,12 @@ nav a:hover {
   background-color: transparent;
   border: none;
   color: white;
+  text-transform: uppercase;
 }
 
 .interests-container {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   align-items: flex-start;
   flex-wrap: wrap;
 }
