@@ -10,6 +10,7 @@ body {
   color: white;
 }
 
+
 .logo-link {
   position: fixed;
   top: 40px;
@@ -116,14 +117,13 @@ nav a:hover {
 .values-section,
 .intro-section,
 .content-section {
-  padding: 2rem 25rem;
+  padding: 2rem 2rem;
   min-height: 100vh;
   background-color: var(--background-color);
   font-size: 1.5rem;
 }
 
-.content-section1,
-.interests-section {
+.content-section1, {
   padding-top: 20rem;
 }
 
