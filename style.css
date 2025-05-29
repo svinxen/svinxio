@@ -123,10 +123,6 @@ nav a:hover {
   font-size: 1.5rem;
 }
 
-.content-section1, {
-  padding-top: 20rem;
-}
-
 /* HAMBURGER */
 .hamburger-wrapper {
   position: fixed;
