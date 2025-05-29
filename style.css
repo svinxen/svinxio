@@ -287,10 +287,11 @@ nav a:hover {
 
 /* Container maxbredd och centrerad */
 .container {
-  max-width: 1600px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   box-sizing: border-box;
+  font-size: 4rem;
 }
 
 /* Intresse-sektion */
@@ -300,10 +301,12 @@ nav a:hover {
   padding: 4rem 0;
   font-family: 'Montserrat', sans-serif;
 }
-
+.carousel-item {
+  font-size: 2rem;
+}
 .interests-container {
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -315,6 +318,8 @@ nav a:hover {
   overflow-x: auto;
   padding-bottom: 0.5rem;
 }
+
+
 
 .interest-description {
   flex: 1 1 400px;
