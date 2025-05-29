@@ -293,7 +293,7 @@ nav a:hover {
   align-items: flex-end; /* Vertikal centrering */
   justify-content: space-between;
   gap: 4rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding-top: 5rem;
 }
@@ -357,7 +357,7 @@ nav a:hover {
 
 .interests-container {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   align-items: flex-start;
   flex-wrap: wrap;
 }
@@ -371,14 +371,14 @@ nav a:hover {
 }
 
 .interest-description {
-  flex: 1 1 400px;
+  flex: 1 1 600px;
   background: transparent;
   border-radius: 8px;
-  padding: 0rem;
+  padding-right: 1rem;
   font-size: 1.125rem;
-  line-height: 1.6;
+  line-height: 1.8;
   min-width: 280px;
-  color: #eee;
+  color: whitesmoke;
   user-select: text;
   box-sizing: border-box;
   transition: opacity 0.3s ease;
@@ -396,13 +396,16 @@ nav a:hover {
 .interest-image-container {
   flex: 1 1 400px;
   min-width: 280px;
+  display: flex;             /* Gör containern till flexbox */
+  justify-content: flex-end; /* Låser innehållet till höger */
 }
 
+
 .interest-image-container img {
-  width: 500px;
-  height: 500px;
-  border-radius: 0px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
+  border: 2px solid white; /* Vit ram, 2px tjock */
 }
 
 /* På mindre skärmar stapla beskrivning + bild */
