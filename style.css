@@ -292,10 +292,10 @@ nav a:hover {
   flex-direction: row;
   align-items: flex-end; /* Vertikal centrering */
   justify-content: space-between;
-  gap: 3rem;
+  gap: 4rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 20rem;
+  padding-top: 5rem;
 }
 
 /* Intresse-sektion */
@@ -305,13 +305,11 @@ nav a:hover {
   padding: 4rem 0;
   font-family: 'Montserrat', sans-serif;
 }
-.carousel-item {
-  font-size: 2rem;
-  background-color: transparent;
-  border: none;
-  color: white;
-}
 
+.interests-section h2 {
+  font-size: 5rem;
+  margin: 0;
+}
 .carousel-item {
   font-size: 2rem;
   background-color: transparent;
@@ -338,7 +336,7 @@ nav a:hover {
   flex: 1 1 400px;
   background: transparent;
   border-radius: 8px;
-  padding: 2rem;
+  padding: 0rem;
   font-size: 1.125rem;
   line-height: 1.6;
   min-width: 280px;
