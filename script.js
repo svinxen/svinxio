@@ -131,36 +131,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const textBlocks = entry.target.querySelectorAll('.fade-in');
-      const img = entry.target.querySelector('.about-image');
+const animatedLines = document.querySelectorAll('.line-animate');
 
-      if (entry.isIntersecting) {
-        // Lägg till 'visible' klass för att trigga animation
-        textBlocks.forEach((el, i) => {
-          setTimeout(() => el.classList.add('visible'), i * 300);
-        });
-
-        // Ta bort 'blurred' klass från bilden
-        if (img) {
-          img.classList.remove('blurred');
-        }
-      } else {
-        // Ta bort 'visible' klass för att återställa animation
-        textBlocks.forEach(el => el.classList.remove('visible'));
-
-        // Lägg till 'blurred' klass till bilden
-        if (img) {
-          img.classList.add('blurred');
-        }
-      }
-    });
-  }, {
-    threshold: 0.4
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+    }
   });
+}, { threshold: 0.6 });
 
-  const aboutRow = document.querySelector('.about-row');
-  if (aboutRow) observer.observe(aboutRow);
+animatedLines.forEach(line => {
+  line.style.animationPlayState = 'paused';
+  observer.observe(line);
 });
+
