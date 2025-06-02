@@ -1,6 +1,7 @@
 :root {
-  --primary-color: #607161;         /* Din huvudfärg (mossig grön?) */
-  --background-color: #0D0D0C;      /* Standard bakgrund (svart) */
+  --primary-color: #607161;         /* Grön */
+  --background-color: hsl(60, 3%, 8%);      /* Standard bakgrund  */
+  --background-color2: #141414;      /* secondary bakgrund  */
 }
 
 body {
@@ -226,7 +227,7 @@ nav a:hover {
   flex-direction: row;
   align-items: flex-end; /* Vertikal centrering */
   justify-content: space-between;
-  gap: 3rem;
+  gap: 5rem;
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 20rem;

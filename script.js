@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Bild-URL:er kopplade till varje key
   const images = {
     outdoors: '/styling/outdoor2.jpeg',
-    pcmodding: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80',
+    pcmodding: '/styling/pc1.jpg',
     books: '/styling/books.jpg',
     animals: '/styling/animals.jpg',
   };
