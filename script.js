@@ -130,19 +130,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
-const animatedLines = document.querySelectorAll('.line-animate');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animationPlayState = 'running';
-    }
-  });
-}, { threshold: 0.6 });
-
-animatedLines.forEach(line => {
-  line.style.animationPlayState = 'paused';
-  observer.observe(line);
+document.querySelectorAll('.line-animate').forEach(el => {
+  el.style.animationPlayState = 'running';
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const animatedLines = document.querySelectorAll('.line-animate');
+  const animatedImages = document.querySelectorAll('.image-animate');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Restart animation by toggling class for lines
+        if (entry.target.classList.contains('line-animate')) {
+          entry.target.classList.remove('line-animate');
+          void entry.target.offsetWidth; // reflow
+          entry.target.classList.add('line-animate');
+          entry.target.style.animationPlayState = 'running';
+        }
+
+        // Same for images
+        if (entry.target.classList.contains('image-animate')) {
+          entry.target.classList.remove('image-animate');
+          void entry.target.offsetWidth;
+          entry.target.classList.add('image-animate');
+          entry.target.style.animationPlayState = 'running';
+        }
+      } else {
+        entry.target.style.animationPlayState = 'paused';
+      }
+    });
+  }, { threshold: 0.6 });
+
+  animatedLines.forEach(line => observer.observe(line));
+  animatedImages.forEach(img => observer.observe(img));
+});

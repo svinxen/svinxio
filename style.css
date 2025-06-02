@@ -462,23 +462,32 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 
+/* Text animation */
 .line-animate {
   opacity: 0;
-  transform: translateY(100%);
+  filter: blur(4px);
   display: inline-block;
-  animation: rollIn 0.8s forwards;
+  animation: blurFadeIn 0.8s forwards;
+  animation-play-state: paused;
 }
 
-@keyframes rollIn {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-  100% {
+/* Bild animation */
+.image-animate {
+  opacity: 0;
+  filter: blur(6px);
+  animation: blurFadeIn 1s forwards;
+  animation-play-state: paused;
+}
+
+/* Gemensam keyframe */
+@keyframes blurFadeIn {
+  to {
     opacity: 1;
-    transform: translateY(0);
+    filter: blur(0);
   }
 }
+
+
 
 
 @media (max-width: 768px) {
