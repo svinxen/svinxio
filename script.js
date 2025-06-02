@@ -129,3 +129,29 @@ document.addEventListener('DOMContentLoaded', () => {
     activeBtn.click();
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const textBlocks = entry.target.querySelectorAll('.fade-in');
+        textBlocks.forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), i * 300);
+        });
+
+        const img = entry.target.querySelector('.about-image');
+        if (img) {
+          img.classList.remove('blurred');
+        }
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.4
+  });
+
+  const aboutRow = document.querySelector('.about-row');
+  if (aboutRow) observer.observe(aboutRow);
+});

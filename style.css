@@ -417,3 +417,57 @@ nav a:hover {
     margin-top: 2rem;
   }
 }
+
+
+.about-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.about-image-container {
+  flex: 1 1 40%;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 1rem;
+  filter: blur(10px);
+  transition: filter 1.5s ease;
+}
+
+.about-image.blurred {
+  filter: blur(10px);
+}
+
+.about-image:not(.blurred) {
+  filter: blur(0);
+}
+
+.about-text {
+  flex: 1 1 55%;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobilvänligt */
+@media (max-width: 768px) {
+  .about-row {
+    flex-direction: column;
+  }
+
+  .about-image-container, .about-text {
+    flex: 1 1 100%;
+  }
+}
