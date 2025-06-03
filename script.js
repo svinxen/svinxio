@@ -172,22 +172,3 @@ document.addEventListener('DOMContentLoaded', () => {
   animatedImages.forEach(img => observer.observe(img));
 });
 
-
-
-
-window.addEventListener('DOMContentLoaded', () => {
-  const scrollContainer = document.querySelector('.scroll-container');
-  const horizontalContent = document.querySelector('.horizontal-content');
-
-  scrollContainer.addEventListener('scroll', () => {
-    const maxScrollTop = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-    if (maxScrollTop === 0) return;
-
-    const scrollPercent = scrollContainer.scrollTop / maxScrollTop;
-
-    const maxTranslateX = horizontalContent.scrollWidth - window.innerWidth;
-    const translateX = -scrollPercent * maxTranslateX;
-
-    horizontalContent.style.transform = `translateX(${translateX}px)`;
-  });
-});
