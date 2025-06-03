@@ -507,60 +507,48 @@ nav a:hover {
 
 
 /* test */
-.horizontal-wrapper {
+.about-section {
+  position: relative;
   height: 100vh;
   overflow: hidden;
-  position: relative;
+  background-color: #111;
+  color: white;
+  font-family: 'Inter', sans-serif;
 }
 
 .horizontal-container {
   display: flex;
-  width: 400vw;
+  width: calc(100vw * 4); /* för 4 slides */
   height: 100vh;
 }
 
+
+  
 .panel {
-  flex: 0 0 100vw;
+  flex-shrink: 0;
+  width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
+  padding: 4rem;
   box-sizing: border-box;
-  color: white;
-}
-
-.panel-1 { background: #0e0e0e; }
-.panel-2 { background: #181818; }
-.panel-3 { background: #212121; }
-.panel-4 { background: #2a2a2a; }
-
-
-#scroll-slides {
-  font-family: 'Inter', sans-serif;
-  letter-spacing: -0.5px;
-}
-
-.panel {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding: 5vw;
-  color: #fff;
-  transition: transform 0.6s ease-out;
+  border-right: 1px solid #222;
+}
+
+.panel:nth-child(odd) {
+  background-color: #222;
 }
 
 .panel h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  font-weight: 700;
   text-transform: lowercase;
+  font-weight: 700;
 }
 
 .panel p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   max-width: 40ch;
-  line-height: 1.6;
+  line-height: 1.5;
 }

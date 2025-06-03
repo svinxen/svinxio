@@ -168,18 +168,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* test */
-const panels = document.querySelectorAll(".panel");
-
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".horizontal-container", {
-  xPercent: -100 * (panels.length - 1),
+const panels = gsap.utils.toArray(".panel");
+const horizontalContainer = document.querySelector(".horizontal-container");
+
+gsap.to(horizontalContainer, {
+  x: () => `-${horizontalContainer.scrollWidth - window.innerWidth}px`,
   ease: "none",
   scrollTrigger: {
-    trigger: "#scroll-slides",
+    trigger: "#about",
     pin: true,
     scrub: 1,
     snap: 1 / (panels.length - 1),
-    end: () => "+=" + document.querySelector("#scroll-slides").offsetWidth * (panels.length - 1)
+    end: () => "+=" + (horizontalContainer.scrollWidth - window.innerWidth)
   }
 });
+
