@@ -504,3 +504,63 @@ nav a:hover {
     flex: 1 1 100%;
   }
 }
+
+
+/* test */
+.horizontal-wrapper {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.horizontal-container {
+  display: flex;
+  width: 400vw;
+  height: 100vh;
+}
+
+.panel {
+  flex: 0 0 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: white;
+}
+
+.panel-1 { background: #0e0e0e; }
+.panel-2 { background: #181818; }
+.panel-3 { background: #212121; }
+.panel-4 { background: #2a2a2a; }
+
+
+#scroll-slides {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.5px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5vw;
+  color: #fff;
+  transition: transform 0.6s ease-out;
+}
+
+.panel h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.panel p {
+  font-size: 1.2rem;
+  max-width: 40ch;
+  line-height: 1.6;
+}

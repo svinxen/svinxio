@@ -165,3 +165,21 @@ document.addEventListener('DOMContentLoaded', () => {
   animatedLines.forEach(line => observer.observe(line));
   animatedImages.forEach(img => observer.observe(img));
 });
+
+
+/* test */
+const panels = document.querySelectorAll(".panel");
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".horizontal-container", {
+  xPercent: -100 * (panels.length - 1),
+  ease: "none",
+  scrollTrigger: {
+    trigger: "#scroll-slides",
+    pin: true,
+    scrub: 1,
+    snap: 1 / (panels.length - 1),
+    end: () => "+=" + document.querySelector("#scroll-slides").offsetWidth * (panels.length - 1)
+  }
+});
