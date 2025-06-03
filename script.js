@@ -1,3 +1,9 @@
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+});
+
+
+
 // Select all nav links and sections
 const navLinks = document.querySelectorAll('nav a');
 const sections = [...document.querySelectorAll('section')];
@@ -167,3 +173,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const scrollContainer = document.querySelector('.scroll-container');
+  const horizontalContent = document.querySelector('.horizontal-content');
+
+  scrollContainer.addEventListener('scroll', () => {
+    const maxScrollTop = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+    if (maxScrollTop === 0) return;
+
+    const scrollPercent = scrollContainer.scrollTop / maxScrollTop;
+
+    const maxTranslateX = horizontalContent.scrollWidth - window.innerWidth;
+    const translateX = -scrollPercent * maxTranslateX;
+
+    horizontalContent.style.transform = `translateX(${translateX}px)`;
+  });
+});
