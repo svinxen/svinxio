@@ -117,6 +117,7 @@ nav a:hover {
 .content-section1,
 .values-section,
 .intro-section,
+.about-section,
 .content-section {
   padding: 2rem 2rem;
   min-height: 100vh;
@@ -507,39 +508,43 @@ nav a:hover {
 
 
 /* test */
+/* Wrapper-sektionen */
 .about-section {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh;          /* Tar hela höjden på viewport */
+  overflow: hidden;       /* Dölj scrollbar och innehåll utanför */
   background-color: #111;
   color: white;
   font-family: 'Inter', sans-serif;
 }
 
+/* Container för alla panels, flex för horisontell layout */
 .horizontal-container {
   display: flex;
-  width: calc(100vw * 4); /* för 4 slides */
+  width: calc(100vw * 4); /* 4 panels, var och en 100vw bred */
   height: 100vh;
 }
 
-
-  
+/* Enskild panel */
 .panel {
-  flex-shrink: 0;
-  width: 100vw;
-  height: 100vh;
+  flex-shrink: 0;         /* Förhindra att paneler krymper */
+  width: 100vw;           /* Varje panel är viewport-bredd */
+  height: 100vh;          /* Full höjd */
   padding: 4rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-right: 1px solid #222;
+  background-color: #222; /* Basfärg */
 }
 
+/* Odda paneler får annan bakgrundsfärg för variation */
 .panel:nth-child(odd) {
-  background-color: #222;
+  background-color: #333;
 }
 
+/* Rubrik */
 .panel h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -547,6 +552,7 @@ nav a:hover {
   font-weight: 700;
 }
 
+/* Brödtext */
 .panel p {
   font-size: 1.3rem;
   max-width: 40ch;
