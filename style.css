@@ -117,7 +117,6 @@ nav a:hover {
 .content-section1,
 .values-section,
 .intro-section,
-.about-section,
 .content-section {
   padding: 2rem 2rem;
   min-height: 100vh;
@@ -291,7 +290,7 @@ nav a:hover {
   align-items: flex-end; 
   justify-content: space-between;
   gap: 4rem;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding-top: 5rem;
 }
@@ -427,79 +426,4 @@ nav a:hover {
     opacity: 1;
     filter: blur(0);
   }
-}
-
-
-/* test */
-.about-section {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background-color: var(--background-color);
-  color: white;
-  padding-top: 10rem;
-}
-
-.about-section h2 {
-  font-size: 5rem;
-  font-weight: 700;
-  margin: 0;
-  padding-left: 20rem;           /* Ger luft runt texten */
-  text-transform: uppercase;
-}
-
-.about-section p {
-  font-size: 1.3rem;
-  margin: 0;
-  padding-left: 20rem;           /* Ger luft runt texten */
-}
-
-.horizontal-container {
-  display: flex;
-  width: calc(100vw * 4); /* 4 panels */
-  height: 50vh;
-  padding-top: 5rem;
-}
-
-.panel {
-  flex-shrink: 0;
-  width: 100vw;
-  height: 50vh;
-  padding: 0; /* Vi flyttar padding till panel-content */
-  box-sizing: border-box;
-  display: flex;
-  align-items: center; /* Vertikal centrering */
-  border-right: 1px solid var(--background-color);
-  background-color: var(--background-color);
-}
-
-
-.panel-content {
-  padding: 20rem;           /* Ger luft runt texten */
-  max-width: 600px;        /* Maxbredd för textkolumnen */
-  margin-left: 4rem;       /* Lite extra luft från vänster */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Vertikal centrering inuti panel-content */
-}
-
-.panel-content h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  font-weight: 700;
-    color: transparent;
-    background-image: url('https://images.unsplash.com/photo-1732535725600-f805d8b33c9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
-    background-size: 200%; /* Enlarged for smooth animation */
-    background-position: 0 50%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: animate-background 15s infinite alternate linear;
-}
-
-.panel-content p {
-  font-size: 1.3rem;
-  max-width: 40ch;
-  line-height: 1.5;
 }
