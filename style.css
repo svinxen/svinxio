@@ -428,3 +428,68 @@ nav a:hover {
   }
 }
 
+
+
+/* TEST TEST TEST */
+
+
+
+.scroll-demo {
+  scroll-snap-type: y mandatory;
+  timeline-scope: --scroll-demo-section;
+  background-color: var(--color-background, black);
+}
+
+.scroll-demo .scroll-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  view-timeline: --scroll-demo-section;
+  height: 100dvh;
+}
+
+.scroll-demo .scroll-content {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  animation: scroll-demo-blink ease-in-out both;
+  animation-timeline: --scroll-demo-section;
+  --contrast: 4;
+  --blur: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.scroll-demo .scroll-text {
+  max-width: 600px;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.scroll-demo .scroll-text img {
+  max-width: 100px;
+  margin-bottom: 1rem;
+}
+
+.scroll-demo .scroll-footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: black;
+  color: white;
+}
+
+@keyframes scroll-demo-blink {
+  0%, 100% {
+    filter: blur(var(--blur)) contrast(var(--contrast));
+    opacity: 0;
+    visibility: hidden;
+  }
+  50% {
+    filter: blur(0) contrast(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}
