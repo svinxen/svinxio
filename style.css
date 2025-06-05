@@ -242,6 +242,14 @@ nav a:hover {
   font-size: 7rem;
   font-weight: 700;
   margin: 0;
+  color: transparent;
+    background-image: url('https://images.unsplash.com/photo-1740676176897-e4878ca7cecd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+    background-size: 200%; /* Enlarged for smooth animation */
+    background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
 }
 
 .values-right p {
@@ -459,9 +467,15 @@ nav a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   color: white;
 }
+
+
+.scroll-demo .scroll-content h2{
+  font-size: 2rem;
+  text-transform: uppercase;
+  }
 
 .scroll-demo .scroll-text {
   max-width: 600px;
