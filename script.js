@@ -172,3 +172,25 @@ document.addEventListener('DOMContentLoaded', () => {
   animatedImages.forEach(img => observer.observe(img));
 });
 
+
+
+
+
+
+
+
+
+
+  document.querySelectorAll('.service-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const alreadyOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.service-item').forEach(i => i.classList.remove('open'));
+
+      if (!alreadyOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+
