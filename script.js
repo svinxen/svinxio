@@ -1,196 +1,97 @@
-window.addEventListener('load', () => {
-  window.scrollTo(0, 0);
-});
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Hamburger meny ---
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
 
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
 
-
-// Select all nav links and sections
-const navLinks = document.querySelectorAll('nav a');
-const sections = [...document.querySelectorAll('section')];
-
-// Function to update active nav link based on scroll position
-function updateActiveLink() {
-  const scrollPos = window.scrollY + window.innerHeight / 3;
-
-  sections.forEach(section => {
-    if (
-      scrollPos >= section.offsetTop &&
-      scrollPos < section.offsetTop + section.offsetHeight
-    ) {
-      const id = section.getAttribute('id');
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-      });
-    }
+    // Växla ikon mellan hamburgare och kryss
+    hamburgerBtn.querySelector('i').className = isOpen ? 'fas fa-times' : 'fas fa-bars';
   });
-}
 
-// Run on scroll
-window.addEventListener('scroll', updateActiveLink);
-
-// Run on load
-updateActiveLink();
-
-const hamburgerBtn = document.getElementById('hamburgerBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburgerBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
-});
-
-// Stäng meny när man klickar utanför
-document.addEventListener('click', (event) => {
-  const isClickInside = hamburgerBtn.contains(event.target) || mobileMenu.contains(event.target);
-
-  if (!isClickInside) {
-    mobileMenu.classList.remove('active');
-  }
-});
-
-// Stäng meny vid klick på en länk
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('active');
-  });
-});
-
-function handleScrollAnimations() {
-  const elements = document.querySelectorAll('.animate-on-scroll');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible'); // Gör så animationen kan spelas igen
-      }
-    });
-  }, { threshold: 0.1 });
-
-  elements.forEach(el => observer.observe(el));
-}
-
-document.addEventListener('DOMContentLoaded', handleScrollAnimations);
-
-const items = document.querySelectorAll(".interest-item");
-const display = document.getElementById("interest-display");
-
-items.forEach(item => {
-  item.addEventListener("click", () => {
-    items.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
-    display.textContent = `Du klickade på: ${item.dataset.name}`;
-  });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const buttons = document.querySelectorAll('.carousel-item');
-  const descriptions = document.querySelectorAll('.desc');
-  const interestImage = document.getElementById('interest-image');
-
-  // Bild-URL:er kopplade till varje key
-  const images = {
-    outdoors: '/styling/outdoor2.jpeg',
-    pcmodding: '/styling/pc1.jpg',
-    books: '/styling/books.jpg',
-    animals: '/styling/animals.jpg',
-  };
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Ta bort active från alla knappar
-      buttons.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-        b.setAttribute('tabindex', '-1');
-      });
-
-      // Lägg på active på klickad knapp
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      btn.setAttribute('tabindex', '0');
-      btn.focus();
-
-      // Visa rätt beskrivning
-      const key = btn.getAttribute('data-key');
-      descriptions.forEach(desc => {
-        if (desc.id === 'desc-' + key) {
-          desc.classList.add('active');
-        } else {
-          desc.classList.remove('active');
-        }
-      });
-
-      // Byt bild
-      if (interestImage) {
-        interestImage.src = images[key] || '';
-        interestImage.alt = key.charAt(0).toUpperCase() + key.slice(1);
-      }
+  // Stäng mobilmeny om man klickar på länk
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.querySelector('i').className = 'fas fa-bars';
     });
   });
 
-  // Kör en gång vid start för att visa rätt bild och beskrivning om någon är aktiv
-  const activeBtn = document.querySelector('.carousel-item.active');
-  if (activeBtn) {
-    activeBtn.click();
-  }
-});
-
-document.querySelectorAll('.line-animate').forEach(el => {
-  el.style.animationPlayState = 'running';
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const animatedLines = document.querySelectorAll('.line-animate');
-  const animatedImages = document.querySelectorAll('.image-animate');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Restart animation by toggling class for lines
-        if (entry.target.classList.contains('line-animate')) {
-          entry.target.classList.remove('line-animate');
-          void entry.target.offsetWidth; // reflow
-          entry.target.classList.add('line-animate');
-          entry.target.style.animationPlayState = 'running';
-        }
-
-        // Same for images
-        if (entry.target.classList.contains('image-animate')) {
-          entry.target.classList.remove('image-animate');
-          void entry.target.offsetWidth;
-          entry.target.classList.add('image-animate');
-          entry.target.style.animationPlayState = 'running';
-        }
-      } else {
-        entry.target.style.animationPlayState = 'paused';
-      }
-    });
-  }, { threshold: 0.6 });
-
-  animatedLines.forEach(line => observer.observe(line));
-  animatedImages.forEach(img => observer.observe(img));
-});
-
-
-
-
-
-
-
-
-
-
-  document.querySelectorAll('.service-toggle').forEach(button => {
+  // --- Service sektion toggle ---
+  const serviceToggles = document.querySelectorAll('.service-toggle');
+  serviceToggles.forEach(button => {
     button.addEventListener('click', () => {
-      const item = button.parentElement;
-      const alreadyOpen = item.classList.contains('open');
+      const item = button.closest('.service-item');
+      const isOpen = item.classList.contains('open');
 
-      document.querySelectorAll('.service-item').forEach(i => i.classList.remove('open'));
+      // Stäng alla
+      document.querySelectorAll('.service-item.open').forEach(i => i.classList.remove('open'));
 
-      if (!alreadyOpen) {
+      // Om den som klickades på inte var öppen, öppna den
+      if (!isOpen) {
         item.classList.add('open');
       }
     });
   });
 
+  // --- Intresse-carousel i About ---
+  const carouselItems = document.querySelectorAll('.carousel-item');
+  const descriptions = document.querySelectorAll('.desc');
+  const interestImage = document.getElementById('interest-image');
+
+  // Kartläggning av nycklar till bild-URL (exempel)
+  const interestImages = {
+    outdoors: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    pcmodding: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80",
+    books: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80",
+    animals: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=600&q=80"
+  };
+
+  carouselItems.forEach(button => {
+    button.addEventListener('click', () => {
+      // Avmarkera alla knappar
+      carouselItems.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+        btn.setAttribute('tabindex', '-1');
+      });
+
+      // Dölj alla beskrivningar
+      descriptions.forEach(desc => desc.classList.remove('active'));
+
+      // Markera vald knapp
+      button.classList.add('active');
+      button.setAttribute('aria-selected', 'true');
+      button.setAttribute('tabindex', '0');
+
+      // Visa relevant beskrivning
+      const key = button.dataset.key;
+      const activeDesc = document.getElementById('desc-' + key);
+      if (activeDesc) activeDesc.classList.add('active');
+
+      // Byt bild
+      if (interestImages[key]) {
+        interestImage.src = interestImages[key];
+      }
+    });
+  });
+
+  // --- GSAP scroll-trigger animation (exempel på animate-on-scroll) ---
+  if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+    gsap.utils.toArray('.animate-on-scroll').forEach(elem => {
+      gsap.fromTo(elem, 
+        { y: 50, opacity: 0 }, 
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          }
+        });
+    });
+  }
+});
